@@ -48,7 +48,7 @@ const Navbar = () => {
           </Link>
           <Link href="/signup">
             <Button
-              variant="outline"
+              variant="secondary"
               className="bg-red-500 hover:bg-white hover:text-zinc-800 rounded-lg"
             >
               Sign Up

@@ -3,9 +3,12 @@ import { NAVBAR_HEIGHT } from '@/lib/constants';
 
 const layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="h-full w-full">
       <Navbar />
-      <main className={`h-full flex w-full flex-col pt-[${NAVBAR_HEIGHT}px]`}>
+      <main
+        className={`h-full flex w-full flex-col`}
+        style={{ paddingTop: `${NAVBAR_HEIGHT}px` }}
+      >
         {children}
       </main>
     </div>
