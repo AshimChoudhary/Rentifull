@@ -1,178 +1,172 @@
 @import 'tailwindcss';
 
+/* Reset + Globals */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  @apply text-sm bg-white;
+}
+
+/* Base Layer (CSS vars + dark theme) */
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html,
-  body,
-  #root,
-  .app {
-    height: 100%;
-    width: 100%;
-    font-size: 0.875rem; /* text-sm */
-    background-color: #ffffff; /* white */
-  }
-
-  .dark {
-    background-color: #000000; /* dark mode bg */
-  }
-
   :root {
-    --background: 0 0% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 88%;
-    --ring: 221.2 83.2% 53.3%;
+    --background: hsl(0 0% 98%);
+    --foreground: hsl(222.2 84% 4.9%);
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(222.2 84% 4.9%);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(222.2 84% 4.9%);
+    --primary: hsl(221.2 83.2% 53.3%);
+    --primary-foreground: hsl(210 40% 98%);
+    --secondary: hsl(210 40% 96.1%);
+    --secondary-foreground: hsl(222.2 47.4% 11.2%);
+    --muted: hsl(210 40% 96.1%);
+    --muted-foreground: hsl(215.4 16.3% 46.9%);
+    --accent: hsl(210 40% 96.1%);
+    --accent-foreground: hsl(222.2 47.4% 11.2%);
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --border: hsl(214.3 31.8% 91.4%);
+    --input: hsl(214.3 31.8% 88%);
+    --ring: hsl(221.2 83.2% 53.3%);
     --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: hsl(0 0% 98%);
+    --sidebar-foreground: hsl(240 5.3% 26.1%);
+    --sidebar-primary: hsl(240 5.9% 10%);
+    --sidebar-primary-foreground: hsl(0 0% 98%);
+    --sidebar-accent: hsl(240 4.8% 95.9%);
+    --sidebar-accent-foreground: hsl(240 5.9% 10%);
+    --sidebar-border: hsl(220 13% 91%);
+    --sidebar-ring: hsl(217.2 91.2% 59.8%);
   }
 
   .dark {
-    --background: 222.2 84% 3.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 15.5%;
-    --ring: 224.3 76.3% 48%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: hsl(222.2 84% 3.9%);
+    --foreground: hsl(210 40% 98%);
+    --card: hsl(222.2 84% 4.9%);
+    --card-foreground: hsl(210 40% 98%);
+    --popover: hsl(222.2 84% 4.9%);
+    --popover-foreground: hsl(210 40% 98%);
+    --primary: hsl(217.2 91.2% 59.8%);
+    --primary-foreground: hsl(222.2 47.4% 11.2%);
+    --secondary: hsl(217.2 32.6% 17.5%);
+    --secondary-foreground: hsl(210 40% 98%);
+    --muted: hsl(217.2 32.6% 17.5%);
+    --muted-foreground: hsl(215 20.2% 65.1%);
+    --accent: hsl(217.2 32.6% 17.5%);
+    --accent-foreground: hsl(210 40% 98%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(210 40% 98%);
+    --border: hsl(217.2 32.6% 17.5%);
+    --input: hsl(217.2 32.6% 15.5%);
+    --ring: hsl(224.3 76.3% 48%);
+    --sidebar-background: hsl(240 5.9% 10%);
+    --sidebar-foreground: hsl(240 4.8% 95.9%);
+    --sidebar-primary: hsl(224.3 76.3% 48%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(240 3.7% 15.9%);
+    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+    --sidebar-border: hsl(240 3.7% 15.9%);
+    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  }
+
+  * {
+    border-color: hsl(var(--border));
   }
 
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    border-color: hsl(var(--border));
   }
 }
 
-/* Layout containers */
-.dashboard-container {
-  padding-top: 2rem; /* pt-8 */
-  padding-bottom: 1.25rem; /* pb-5 */
-  padding-left: 2rem; /* px-8 */
-  padding-right: 2rem;
+/* Components */
+@layer components {
+  .dashboard-container {
+    @apply pt-8 pb-5 px-8;
+  }
+
+  .mapboxgl-popup-content {
+    background-color: #27272a !important;
+    border-radius: 0.5rem !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+  .mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
+    border-bottom-color: #27272a !important;
+  }
+  .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-top-color: #27272a !important;
+  }
+  .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: #27272a !important;
+  }
+  .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: #27272a !important;
+  }
+
+  .marker-popup {
+    background-color: #27272a;
+    color: white;
+    padding: 0;
+    margin: 0;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .marker-popup-image {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: cover;
+    background-color: white;
+    border-radius: 0.5rem;
+  }
+  .marker-popup-price {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #e0e0e2;
+  }
+  .marker-popup-title {
+    text-decoration: underline;
+    color: #93c5fd;
+    cursor: pointer;
+    outline: none;
+  }
+  .marker-popup-title:hover {
+    text-decoration: underline;
+    color: #93c5fd;
+  }
+  .marker-popup-price-unit {
+    font-size: 0.75rem;
+    color: #82828b;
+    font-weight: 400;
+  }
 }
 
-/* Mapbox popups */
-.mapboxgl-popup-content {
-  background-color: hsl(var(--primary)) !important;
-  border-radius: 0.5rem !important;
-  padding: 0.5rem 0.75rem !important; /* py-2 px-3 */
-}
-
-.mapboxgl-popup-anchor-top .mapboxgl-popup-tip {
-  border-bottom-color: hsl(var(--primary)) !important;
-}
-.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-  border-top-color: hsl(var(--primary)) !important;
-}
-.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-  border-right-color: hsl(var(--primary)) !important;
-}
-.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-  border-left-color: hsl(var(--primary)) !important;
-}
-
-.marker-popup {
-  display: flex !important;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.75rem; /* gap-3 */
-  background-color: hsl(var(--primary));
-  color: white;
-  margin: 0;
-  padding: 0;
-}
-
-.marker-popup-image {
-  width: 2.5rem; /* w-10 */
-  height: 2.5rem; /* h-10 */
-  object-fit: cover;
-  background-color: white;
-  border-radius: 0.5rem;
-}
-
-.marker-popup-price {
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 600; /* semibold */
-  color: hsl(var(--primary));
-  opacity: 0.7;
-}
-
-.marker-popup-title {
-  cursor: pointer;
-}
-.marker-popup-title:hover {
-  text-decoration: underline;
-  color: hsl(var(--accent));
-}
-.marker-popup-title:focus {
-  outline: none;
-}
-
-.marker-popup-price-unit {
-  font-size: 0.75rem; /* text-xs */
-  font-weight: 400; /* normal */
-  color: hsl(var(--primary));
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 5px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary) / 0.3);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(var(--primary) / 0.5);
+/* Utilities */
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #e0e0e2;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #c7c7cc;
+  }
 }
 
 /* Amplify UI Overrides */
@@ -185,4 +179,80 @@
   --amplify-components-fieldcontrol-border-radius: var(--radius);
 }
 
-/* You can keep the rest of Amplify + Toast overrides unchanged */
+[data-amplify-authenticator][data-variation='default'] {
+  height: 100%;
+  padding: 2rem !important;
+}
+
+[data-amplify-authenticator] [data-amplify-router] {
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 400px !important;
+  margin: 0 auto;
+}
+
+[data-amplify-authenticator] [data-amplify-container] {
+  border-radius: var(--radius);
+  padding: 2rem !important;
+  border: 1px solid hsl(var(--border));
+}
+
+[data-amplify-authenticator] [data-amplify-form] {
+  padding: 0 !important;
+}
+
+[data-amplify-authenticator] .amplify-tabs__list {
+  display: none;
+}
+
+[data-amplify-authenticator] .amplify-button--primary {
+  width: 100%;
+  height: 2.75rem;
+  margin-top: 1rem;
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+[data-amplify-authenticator] .amplify-button--primary:hover {
+  background-color: hsl(var(--primary) / 0.8) !important;
+}
+
+[data-amplify-authenticator] .amplify-field-group__control {
+  border-color: hsl(var(--input));
+}
+[data-amplify-authenticator] .amplify-field-group__control:focus-within {
+  border-color: hsl(var(--ring)) !important;
+  box-shadow: 0 0 0 1px hsl(var(--ring)) !important;
+}
+
+[data-amplify-authenticator] .amplify-field__show-password {
+  color: hsl(var(--muted-foreground));
+}
+
+[data-amplify-authenticator] .amplify-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+
+[data-amplify-authenticator] .amplify-select {
+  border-color: hsl(var(--input));
+  border-radius: var(--radius);
+  height: 2.5rem;
+  font-size: 0.875rem;
+}
+
+[data-amplify-authenticator] .amplify-text--error {
+  color: #ff0000;
+}
+
+/* Sonner Toast Styles */
+[data-close-button='true'] {
+  background-color: hsl(var(--background));
+  border-color: hsl(var(--border));
+  color: hsl(var(--foreground));
+}
+[data-close-button='true']:hover {
+  background-color: hsl(var(--muted));
+}
