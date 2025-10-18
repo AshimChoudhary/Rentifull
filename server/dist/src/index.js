@@ -11,6 +11,7 @@ const helmet_1 = __importDefault(require("helmet"));
 const morgan_1 = __importDefault(require("morgan"));
 const authMiddleware_1 = require("./middleware/authMiddleware");
 const tenantRoutes_1 = __importDefault(require("./routes/tenantRoutes"));
+const managerRoutes_1 = __importDefault(require("./routes/managerRoutes"));
 // Configurations
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -26,6 +27,7 @@ app.use((0, cors_1.default)());
 // Route
 app.get('/', (req, res) => res.send('This is home Route'));
 app.use('/tenants', (0, authMiddleware_1.authMiddleware)(['tenant']), tenantRoutes_1.default);
+app.use('/managers', (0, authMiddleware_1.authMiddleware)(['manager']), managerRoutes_1.default);
 // Server
 const port = process.env.PORT || 3002;
 app.listen(port, () => {

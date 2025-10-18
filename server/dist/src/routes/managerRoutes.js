@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const tenantControllers_1 = require("../controllers/tenantControllers");
+const managerControllers_1 = require("../controllers/managerControllers");
 const router = express_1.default.Router();
-router.get('/:cognitoId', tenantControllers_1.getTenant);
-router.post('/', tenantControllers_1.createTenant);
+router.get('/:cognitoId', managerControllers_1.getManager);
+router.post('/', managerControllers_1.createManager);
 exports.default = router;
